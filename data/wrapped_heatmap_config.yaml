@@ -1,0 +1,41 @@
+# Configuration to make wrapped (multi-row) heatmaps
+
+entry_in_293-CMAH_entry: &entry_NeuGc
+  data_csv: results/summaries/entry_in_NeuAc_vs_NeuGc_cells.csv
+  title: effect of mutations entry in NeuGc containing cells
+  effect_col: entry in CMAH cells
+  data_query_str: {}  # ignore this site
+  sites_per_row: 113  # how many sites in each row
+  site_label_freq: 10  # label sites at this frequency
+  color_scheme: redblue  # vega color scheme
+  fixed_min: -6  # fix heatmap min at this
+  fixed_max: 2  # fix heatmap max at this
+  alphabet: RKHDEQNSTYWFAILMVGPC  # amino acids in order
+
+entry_in_293_entry: &entry_293
+  data_csv: results/summaries/entry_in_NeuAc_vs_NeuGc_cells.csv
+  title: effect of mutations entry in NeuAc containing cells
+  effect_col: entry in 293 cells
+  data_query_str: {}  # ignore this site
+  sites_per_row: 113  # how many sites in each row
+  site_label_freq: 10  # label sites at this frequency
+  color_scheme: redblue  # vega color scheme
+  fixed_min: -6  # fix heatmap min at this
+  fixed_max: 2  # fix heatmap max at this
+  alphabet: RKHDEQNSTYWFAILMVGPC  # amino acids in order
+
+
+increase_in_NeuGc_usage: &NeuGc_increase
+  data_csv: results/summaries/entry_in_NeuAc_vs_NeuGc_cells.csv
+  title: Increase in NeuGc usage
+  effect_col: NeuGc usage increase
+  data_query_str: {}  # ignore this site
+  sites_per_row: 113  # how many sites in each row
+  site_label_freq: 10  # label sites at this frequency
+  color_scheme:
+    - "#67001f"   # deep red
+    - "#f7f7f7"   # white
+    - "#04D9FF"   # neon blue
+  fixed_min: 0  # fix heatmap min at this
+  fixed_max: 2  # fix heatmap max at this
+  alphabet: RKHDEQNSTYWFAILMVGPC  # amino acids in order

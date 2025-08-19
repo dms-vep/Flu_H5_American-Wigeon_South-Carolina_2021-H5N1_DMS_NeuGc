@@ -1,0 +1,210 @@
+<h1 id="deep-mutational-scanning-of-h5n1-influenza-haemagglutinin-using-a-barcoded-lentiviral-platform-strain-aamerican-wigeonsouth-carolinausda-000345-0012021-and-entry-into-neugc-vs-neuac-expressing-cells">Deep mutational scanning of H5N1 influenza haemagglutinin using a barcoded lentiviral platform (strain A/American Wigeon/South Carolina/USDA-000345-001/2021) and entry into NeuGc vs NeuAc expressing cells</h1>
+<p>Analysis by Bernadeta Dadonaite and Jesse Bloom (2025)</p>
+<p>See <a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc">https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc</a> for full code.</p>
+<div class="toc"><span class="toctitle">Contents</span><ul>
+<li><a href="#barcode-to-codon-variant-lookup-table">Barcode to codon-variant lookup table</a></li>
+<li><a href="#count-barcodes-for-variants">Count barcodes for variants</a></li>
+<li><a href="#functional-effects-of-mutations">Functional effects of mutations</a></li>
+<li><a href="#integrated-summary-plots">Integrated summary plots</a></li>
+<li><a href="#row-wrapped-heatmaps">Row-wrapped heatmaps</a></li>
+<li><a href="#additional-files">Additional files</a></li>
+</ul>
+</div>
+<h2 id="barcode-to-codon-variant-lookup-table">Barcode to codon-variant lookup table</h2>
+<h4 id="data-files">Data files</h4>
+<ul>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/gene_sequence/codon.fasta">parental codon sequence</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/gene_sequence/protein.fasta">parental protein sequence</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/variants/codon_variants.csv">barcode to codon-variant lookup table</a></li>
+</ul>
+<h2 id="count-barcodes-for-variants">Count barcodes for variants</h2>
+<h4 id="analysis-notebooks">Analysis notebooks</h4>
+<ul>
+<li><a href="notebooks/analyze_variant_counts.html">Analysis of variant counts</a></li>
+</ul>
+<h4 id="data-files_1">Data files</h4>
+<ul>
+<li><details><summary>Barcode count CSVs (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib1-240704-293-VSVG-control_counts.csv">Lib1-240704-293-VSVG-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib2-240704-293-VSVG-control_counts.csv">Lib2-240704-293-VSVG-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib1-240704-CMAH-293-VSVG-control_counts.csv">Lib1-240704-CMAH-293-VSVG-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib2-240704-CMAH-293-VSVG-control_counts.csv">Lib2-240704-CMAH-293-VSVG-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib1-240704-293-H5-control_counts.csv">Lib1-240704-293-H5-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib2-240704-293-H5-control_counts.csv">Lib2-240704-293-H5-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib1-240704-CMAH-293-H5-control_counts.csv">Lib1-240704-CMAH-293-H5-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib2-240704-CMAH-293-H5-control_counts.csv">Lib2-240704-CMAH-293-H5-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib1-241216-293-IGM-H5-control_counts.csv">Lib1-241216-293-IGM-H5-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib2-241216-293-IGM-H5-control_counts.csv">Lib2-241216-293-IGM-H5-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib1-241216-293-IGM-VSVG-control_counts.csv">Lib1-241216-293-IGM-VSVG-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib2-241216-293-IGM-VSVG-control_counts.csv">Lib2-241216-293-IGM-VSVG-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib1-241216-CMAH-293-IGM-H5-control_counts.csv">Lib1-241216-CMAH-293-IGM-H5-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib2-241216-CMAH-293-IGM-H5-control_counts.csv">Lib2-241216-CMAH-293-IGM-H5-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib1-241216-CMAH-293-IGM-VSVG-control_counts.csv">Lib1-241216-CMAH-293-IGM-VSVG-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib2-241216-CMAH-293-IGM-VSVG-control_counts.csv">Lib2-241216-CMAH-293-IGM-VSVG-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib1-241216-293-SA23-IGM-H5-control_counts.csv">Lib1-241216-293-SA23-IGM-H5-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib2-241216-293-SA23-IGM-H5-control_counts.csv">Lib2-241216-293-SA23-IGM-H5-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib1-241216-293-SA23-IGM-VSVG-control_counts.csv">Lib1-241216-293-SA23-IGM-VSVG-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib2-241216-293-SA23-IGM-VSVG-control_counts.csv">Lib2-241216-293-SA23-IGM-VSVG-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib1-241216-293-SA26-IGM-H5-control_counts.csv">Lib1-241216-293-SA26-IGM-H5-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib2-241216-293-SA26-IGM-H5-control_counts.csv">Lib2-241216-293-SA26-IGM-H5-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib1-241216-293-SA26-IGM-VSVG-control_counts.csv">Lib1-241216-293-SA26-IGM-VSVG-control</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/barcode_counts/Lib2-241216-293-SA26-IGM-VSVG-control_counts.csv">Lib2-241216-293-SA26-IGM-VSVG-control</a></li>
+</ul></details>
+
+</li>
+</ul>
+<h2 id="functional-effects-of-mutations">Functional effects of mutations</h2>
+<h4 id="final-summary-plots">Final summary plots</h4>
+<ul>
+<li><details><summary>Interactive plots of average mutation functional effects (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="htmls/293_entry_func_effects.html">293_entry</a></li>
+<li><a href="htmls/293_CMAH_entry_func_effects.html">293_CMAH_entry</a></li>
+<li><a href="htmls/293_low-sera_entry_func_effects.html">293_low-sera_entry</a></li>
+<li><a href="htmls/293_low-sera_CMAH_entry_func_effects.html">293_low-sera_CMAH_entry</a></li>
+</ul></details>
+
+</li>
+<li><details><summary>Interactive plots of average mutation functional effects from single-mutant variants only (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="htmls/293_entry_func_effects_singlemut.html">293_entry</a></li>
+<li><a href="htmls/293_CMAH_entry_func_effects_singlemut.html">293_CMAH_entry</a></li>
+<li><a href="htmls/293_low-sera_entry_func_effects_singlemut.html">293_low-sera_entry</a></li>
+<li><a href="htmls/293_low-sera_CMAH_entry_func_effects_singlemut.html">293_low-sera_CMAH_entry</a></li>
+</ul></details>
+
+</li>
+<li><details><summary>Interactive plots of average mutation latent-phenotype effects (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="htmls/293_entry_latent_effects.html">293_entry</a></li>
+<li><a href="htmls/293_CMAH_entry_latent_effects.html">293_CMAH_entry</a></li>
+<li><a href="htmls/293_low-sera_entry_latent_effects.html">293_low-sera_entry</a></li>
+<li><a href="htmls/293_low-sera_CMAH_entry_latent_effects.html">293_low-sera_CMAH_entry</a></li>
+</ul></details>
+
+</li>
+<li><details><summary>Interactive plots of differences in functional effects between conditions (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="htmls/CMAH_vs_293_entry_diffs.html">CMAH_vs_293_entry</a></li>
+<li><a href="htmls/CMAH_vs_293_low-sera_entry_diffs.html">CMAH_vs_293_low-sera_entry</a></li>
+<li><a href="htmls/CMAH_vs_293_entry_diffs_corr.html">CMAH_vs_293_entry correlation chart</a></li>
+<li><a href="htmls/CMAH_vs_293_low-sera_entry_diffs_corr.html">CMAH_vs_293_low-sera_entry correlation chart</a></li>
+</ul></details>
+
+</li>
+</ul>
+<h4 id="analysis-notebooks_1">Analysis notebooks</h4>
+<ul>
+<li><a href="notebooks/analyze_func_scores.html">Analysis of functional scores</a></li>
+<li><details><summary>Notebooks with per-selection global epistasis fitting (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="notebooks/func_effects_global_epistasis_Lib1-240704-293.html">Lib1-240704-293</a></li>
+<li><a href="notebooks/func_effects_global_epistasis_Lib2-240704-293.html">Lib2-240704-293</a></li>
+<li><a href="notebooks/func_effects_global_epistasis_Lib1-240704-CMAH-293.html">Lib1-240704-CMAH-293</a></li>
+<li><a href="notebooks/func_effects_global_epistasis_Lib2-240704-CMAH-293.html">Lib2-240704-CMAH-293</a></li>
+<li><a href="notebooks/func_effects_global_epistasis_Lib1-241216-293-IGM.html">Lib1-241216-293-IGM</a></li>
+<li><a href="notebooks/func_effects_global_epistasis_Lib2-241216-293-IGM.html">Lib2-241216-293-IGM</a></li>
+<li><a href="notebooks/func_effects_global_epistasis_Lib1-241216-CMAH-IGM.html">Lib1-241216-CMAH-IGM</a></li>
+<li><a href="notebooks/func_effects_global_epistasis_Lib2-241216-CMAH-IGM.html">Lib2-241216-CMAH-IGM</a></li>
+</ul></details>
+
+</li>
+<li><details><summary>Notebooks averaging mutation functional effects (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="notebooks/avg_func_effects_293_entry.html">293_entry</a></li>
+<li><a href="notebooks/avg_func_effects_293_CMAH_entry.html">293_CMAH_entry</a></li>
+<li><a href="notebooks/avg_func_effects_293_low-sera_entry.html">293_low-sera_entry</a></li>
+<li><a href="notebooks/avg_func_effects_293_low-sera_CMAH_entry.html">293_low-sera_CMAH_entry</a></li>
+</ul></details>
+
+</li>
+<li><details><summary>Notebooks taking differences in functional effects between conditions (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="notebooks/func_effect_diffs_CMAH_vs_293_entry.html">CMAH_vs_293_entry</a></li>
+<li><a href="notebooks/func_effect_diffs_CMAH_vs_293_low-sera_entry.html">CMAH_vs_293_low-sera_entry</a></li>
+</ul></details>
+
+</li>
+</ul>
+<h4 id="data-files_2">Data files</h4>
+<ul>
+<li><details><summary>Per-variant functional score CSVs (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_scores/Lib1-240704-293_func_scores.csv">Lib1-240704-293</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_scores/Lib2-240704-293_func_scores.csv">Lib2-240704-293</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_scores/Lib1-240704-CMAH-293_func_scores.csv">Lib1-240704-CMAH-293</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_scores/Lib2-240704-CMAH-293_func_scores.csv">Lib2-240704-CMAH-293</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_scores/Lib1-241216-293-IGM_func_scores.csv">Lib1-241216-293-IGM</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_scores/Lib2-241216-293-IGM_func_scores.csv">Lib2-241216-293-IGM</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_scores/Lib1-241216-CMAH-IGM_func_scores.csv">Lib1-241216-CMAH-IGM</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_scores/Lib2-241216-CMAH-IGM_func_scores.csv">Lib2-241216-CMAH-IGM</a></li>
+</ul></details>
+
+</li>
+<li><details><summary>Per-selection mutation functional effect CSVs (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/by_selection/Lib1-240704-293_func_effects.csv">Lib1-240704-293</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/by_selection/Lib2-240704-293_func_effects.csv">Lib2-240704-293</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/by_selection/Lib1-240704-CMAH-293_func_effects.csv">Lib1-240704-CMAH-293</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/by_selection/Lib2-240704-CMAH-293_func_effects.csv">Lib2-240704-CMAH-293</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/by_selection/Lib1-241216-293-IGM_func_effects.csv">Lib1-241216-293-IGM</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/by_selection/Lib2-241216-293-IGM_func_effects.csv">Lib2-241216-293-IGM</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/by_selection/Lib1-241216-CMAH-IGM_func_effects.csv">Lib1-241216-CMAH-IGM</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/by_selection/Lib2-241216-CMAH-IGM_func_effects.csv">Lib2-241216-CMAH-IGM</a></li>
+</ul></details>
+
+</li>
+<li><details><summary>Average mutation functional effects (CSV files) (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/averages/293_entry_func_effects.csv">293_entry</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/averages/293_CMAH_entry_func_effects.csv">293_CMAH_entry</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/averages/293_low-sera_entry_func_effects.csv">293_low-sera_entry</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/averages/293_low-sera_CMAH_entry_func_effects.csv">293_low-sera_CMAH_entry</a></li>
+</ul></details>
+
+</li>
+<li><details><summary>Average mutation functional effects from single-mutant variants only (CSV files) (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/averages/293_entry_func_effects_singlemut.csv">293_entry</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/averages/293_CMAH_entry_func_effects_singlemut.csv">293_CMAH_entry</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/averages/293_low-sera_entry_func_effects_singlemut.csv">293_low-sera_entry</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/averages/293_low-sera_CMAH_entry_func_effects_singlemut.csv">293_low-sera_CMAH_entry</a></li>
+</ul></details>
+
+</li>
+<li><details><summary>Average mutation latent-phenotype effects (CSV files) (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/averages/293_entry_func_effects.csv">293_entry</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/averages/293_CMAH_entry_func_effects.csv">293_CMAH_entry</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/averages/293_low-sera_entry_func_effects.csv">293_low-sera_entry</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effects/averages/293_low-sera_CMAH_entry_func_effects.csv">293_low-sera_CMAH_entry</a></li>
+</ul></details>
+
+</li>
+<li><details><summary>Differences in functional effects (CSV files) (click triangle to expand/collapse)</summary><ul>
+
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effect_diffs/CMAH_vs_293_entry_diffs.csv">CMAH_vs_293_entry</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/func_effect_diffs/CMAH_vs_293_low-sera_entry_diffs.csv">CMAH_vs_293_low-sera_entry</a></li>
+</ul></details>
+
+</li>
+</ul>
+<h2 id="integrated-summary-plots">Integrated summary plots</h2>
+<h4 id="entry-in-neuac-vs-neugc-cells">entry in NeuAc vs NeuGc cells</h4>
+<ul>
+<li><a href="htmls/entry_in_NeuAc_vs_NeuGc_cells_overlaid.html">Summary plot</a></li>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/results/summaries/entry_in_NeuAc_vs_NeuGc_cells.csv">CSV summarizing results</a></li>
+</ul>
+<h2 id="row-wrapped-heatmaps">Row-wrapped heatmaps</h2>
+<h4 id="heatmap-htmls">Heatmap HTMLs</h4>
+<ul>
+<li><a href="htmls/entry_in_293-CMAH_entry_wrapped_heatmap.html">entry_in_293-CMAH_entry</a></li>
+<li><a href="htmls/entry_in_293_entry_wrapped_heatmap.html">entry_in_293_entry</a></li>
+<li><a href="htmls/increase_in_NeuGc_usage_wrapped_heatmap.html">increase_in_NeuGc_usage</a></li>
+</ul>
+<h2 id="additional-files">Additional files</h2>
+<h4 id="ha-site-numbering">HA site numbering</h4>
+<ul>
+<li><a href="https://github.com/dms-vep/Flu_H5_American-Wigeon_South-Carolina_2021-H5N1_DMS_NeuGc/blob/master/data/site_numbering_map.csv">CSV converting among different protein numbering schemes</a></li>
+</ul>
